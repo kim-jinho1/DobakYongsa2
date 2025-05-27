@@ -3,7 +3,7 @@ using Code.Core.StatSystem;
 using Code.Entities;
 using UnityEngine;
 
-namespace Code.Players
+namespace Code.Players.Components
 {
     public class PlayerAttackCompo : MonoBehaviour, IEntityComponent, IAfterInitialize
     {

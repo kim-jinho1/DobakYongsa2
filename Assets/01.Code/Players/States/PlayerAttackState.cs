@@ -1,5 +1,6 @@
 using Code.Combat;
 using Code.Entities;
+using Code.Players.Components;
 using UnityEngine;
 
 namespace Code.Players.States
@@ -7,11 +8,11 @@ namespace Code.Players.States
     public class PlayerAttackState : PlayerState
     {
         private PlayerAttackCompo _attackCompo;
-        private CharacterMovement _movement;
+        private MovementCompo _movementCompo;
         
         public PlayerAttackState(Entity entity, int animationHash) : base(entity, animationHash)
         {
-            _movement = entity.GetCompo<CharacterMovement>();
+            _movementCompo = entity.GetCompo<MovementCompo>();
             _attackCompo = entity.GetCompo<PlayerAttackCompo>();
         }
         public override void Enter()
@@ -19,7 +20,7 @@ namespace Code.Players.States
             base.Enter();
             _attackCompo.Attack();
 
-            _movement.CanManualMovement = false;
+            _movementCompo.CanManualMovement = false;
             ApplyAttackData();
         }
 
@@ -30,7 +31,7 @@ namespace Code.Players.States
             _player.transform.rotation = Quaternion.LookRotation(playerDirection); //이거 나중에 쓰인다.
 
             Vector3 movement = playerDirection * currentAtkData.movementPower;
-            _movement.SetAutoMovement(movement);
+            _movementCompo.SetAutoMovement(movement);
         }
 
         private Vector3 GetPlayerDirection()
@@ -47,8 +48,8 @@ namespace Code.Players.States
         public override void Exit()
         {
             _attackCompo.EndAttack();
-            _movement.CanManualMovement = true;
-            _movement.StopImmediately();
+            _movementCompo.CanManualMovement = true;
+            _movementCompo.StopImmediately();
             base.Exit();
         }
         public override void Update()

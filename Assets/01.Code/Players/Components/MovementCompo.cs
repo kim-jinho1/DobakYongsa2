@@ -2,9 +2,9 @@ using Code.Core.StatSystem;
 using Code.Entities;
 using UnityEngine;
 
-namespace Code.Players
+namespace Code.Players.Components
 {
-    public class CharacterMovement : MonoBehaviour, IEntityComponent, IAfterInitialize
+    public class MovementCompo : MonoBehaviour, IEntityComponent, IAfterInitialize
     {
         [SerializeField] private StatSO moveSpeedStat;
         [SerializeField] private float gravity = -9.81f;

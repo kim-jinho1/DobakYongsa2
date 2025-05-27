@@ -1,22 +1,22 @@
 using Code.Entities;
-using Code.FSM;
 using UnityEngine;
+using Code.Players.Components;
 
 namespace Code.Players.States
 {
     public class PlayerIdleState : PlayerCanAttackState
     {
-        private CharacterMovement _movement;
+        private MovementCompo _movementCompo;
         public PlayerIdleState(Entity entity, int animationHash) : base(entity, animationHash)
         {
-            _movement = entity.GetCompo<CharacterMovement>();
+            _movementCompo = entity.GetCompo<MovementCompo>();
         }
 
         public override void Update()
         {
             base.Update();
             Vector2 movementKey = _player.PlayerInput.MovementKey;
-            _movement.SetMovementDirection(movementKey);
+            _movementCompo.SetMovementDirection(movementKey);
             if (movementKey.magnitude > _inputThreshold)
             {
                 _player.ChangeState("MOVE");

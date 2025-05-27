@@ -1,23 +1,24 @@
 using Code.Entities;
 using UnityEngine;
+using Code.Players.Components;
 
 namespace Code.Players.States
 {
     public class PlayerRollingState : PlayerState
     {
-        private CharacterMovement _movement;
+        private MovementCompo _movementCompo;
         private bool _isRolling;
         private Vector3 _rollingDirection;
         
         public PlayerRollingState(Entity entity, int animationHash) : base(entity, animationHash)
         {
-            _movement = entity.GetCompo<CharacterMovement>();
+            _movementCompo = entity.GetCompo<MovementCompo>();
         }
 
         public override void Enter()
         {
             base.Enter();
-            _movement.CanManualMovement = false;
+            _movementCompo.CanManualMovement = false;
             _isRolling = false;
 
             _animatorTrigger.OnRollingStatusChange += HandleRollingStatusChange;
@@ -26,7 +27,7 @@ namespace Code.Players.States
 
         public override void Exit()
         {
-            _movement.CanManualMovement = true;
+            _movementCompo.CanManualMovement = true;
             _animatorTrigger.OnRollingStatusChange -= HandleRollingStatusChange;
             base.Exit();
         }
@@ -43,11 +44,11 @@ namespace Code.Players.States
         {
             if (_isRolling != isActive && isActive)
             {
-                _movement.SetAutoMovement(_rollingDirection * _player.rollingVelocity);
+                _movementCompo.SetAutoMovement(_rollingDirection * _player.rollingVelocity);
             }
             else if(isActive == false)
             {
-                _movement.SetAutoMovement(_rollingDirection * (_player.rollingVelocity * 0.2f));
+                _movementCompo.SetAutoMovement(_rollingDirection * (_player.rollingVelocity * 0.2f));
             }
             _isRolling = isActive;   
         }
