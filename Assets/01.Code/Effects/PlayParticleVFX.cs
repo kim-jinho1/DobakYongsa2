@@ -14,7 +14,7 @@ namespace Code.Effects
             if(isOnPosition == false)
                 transform.SetPositionAndRotation(position, rotation);
             
-            particle.Play(true); //true는 생략해도 된다.
+            particle.Play(true);
         }
 
         public void StopVfx()

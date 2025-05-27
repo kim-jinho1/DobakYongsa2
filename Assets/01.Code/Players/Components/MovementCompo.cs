@@ -36,7 +36,7 @@ namespace Code.Players.Components
             StatSO targetStat = _statCompo.GetStat(moveSpeedStat);
             Debug.Assert(targetStat != null, $"{moveSpeedStat.statName} stat could not found");
             targetStat.OnValueChanged += HandleMoveSpeedChange;
-            _moveSpeed = targetStat.Value; //최초에는 초기화 한번 해준다.
+            _moveSpeed = targetStat.Value;
         }
 
         private void OnDestroy()

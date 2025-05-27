@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: RollingStateData
   m_EditorClassIdentifier: 
   stateName: ROLLING
-  className: Blade.Players.States.PlayerRollingState
+  className: Code.Players.States.PlayerRollingState
   animParamName: ROLLING
   animationHash: 1658899811

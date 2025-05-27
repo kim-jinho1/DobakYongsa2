@@ -15,7 +15,7 @@ namespace Code.FSM
             _states = new Dictionary<string, EntityState>();
             foreach (StateDataSO state in stateList)
             {
-                Type type = Type.GetType(state.className); //문자열로 타입 가져오기
+                Type type = Type.GetType(state.className);
                 Debug.Assert(type != null, $"Finding type is null : {state.className}");
                 EntityState entityState = Activator.CreateInstance(type, entity, state.animationHash)
                                             as EntityState;

@@ -28,7 +28,7 @@ namespace Code.Players.States
         {
             AttackDataSO currentAtkData = _attackCompo.GetCurrentAttackData();
             Vector3 playerDirection = GetPlayerDirection();
-            _player.transform.rotation = Quaternion.LookRotation(playerDirection); //이거 나중에 쓰인다.
+            _player.transform.rotation = Quaternion.LookRotation(playerDirection);
 
             Vector3 movement = playerDirection * currentAtkData.movementPower;
             _movementCompo.SetAutoMovement(movement);
@@ -60,9 +60,3 @@ namespace Code.Players.States
         }
     }
 }
-
-/*
-애니메이션 이벤트로 로직 함수를 건드리면 안된다.
-이벤트로는 변수에 값을 저장하고
-해당 값을 다음 프레임에서 이용하도록 해야 한다. 
-*/

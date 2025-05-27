@@ -11,7 +11,7 @@ namespace Code.Combat
         
         public override void CastDamage(DamageData damageData, Vector3 position, Vector3 direction, AttackDataSO attackData)
         {
-            Vector3 startPos = position + direction * -castInterpolation * 2; //- 붙어있음.
+            Vector3 startPos = position + direction * -castInterpolation * 2;
             
             bool isHit = Physics.SphereCast(
                 startPos, castRadius, 
@@ -25,7 +25,7 @@ namespace Code.Combat
                 Debug.Log($"<color=red>Hit</color> {hit.collider.name}");
                 if(hit.collider.TryGetComponent(out IDamageable damageable))
                 {
-                    float damage = 5f; //스탯시스템 만들고 수정한다.
+                    float damage = 5f;
                     damageable.ApplyDamage(damageData, hit.point, hit.normal, attackData, _owner);
                 }
 

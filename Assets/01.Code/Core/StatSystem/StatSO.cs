@@ -57,12 +57,10 @@ namespace Code.Core.StatSystem
                 OnValueChanged?.Invoke(this, value, prevValue);
             }
         }
-        
-        //힘 스탯이 몇이냐? 10 + 4 + 2 + 5
 
         public void AddModifier(object key, float value)
         {
-            if (_modifyValueByKey.ContainsKey(key)) return; //동일아이템에 대한 중복적용은 허용하지 않는다.
+            if (_modifyValueByKey.ContainsKey(key)) return;
 
             float prevValue = Value;
             _modifiedValue += value;
@@ -93,7 +91,7 @@ namespace Code.Core.StatSystem
 
         public object Clone()
         {
-            return Instantiate(this); //자기자신을 복제해서 준다.
+            return Instantiate(this);
         }
     }
 }

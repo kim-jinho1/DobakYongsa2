@@ -49,10 +49,6 @@ namespace Code.Players
 
         public void ChangeState(string newStateName) 
             => _stateMachine.ChangeState(newStateName);
-
-        // private void HandleMovementChange(Vector2 movementInput)
-        // {
-        //     _movement.SetMovementDirection(movementInput);
-        // }
+        
     }
 }

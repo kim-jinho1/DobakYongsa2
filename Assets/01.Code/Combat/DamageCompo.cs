@@ -65,10 +65,9 @@ namespace Code.Combat
 
             data.damage = _statCompo.GetStat(majorStat).Value * attackData.damageMultiplier 
                           + attackData.damageIncrease * multiplier;
-            //증뎀 + 추뎀식
             if (Random.value < _critical)
             {
-                data.damage *= _criticalDamage; //크리티컬 증뎀률 곱
+                data.damage *= _criticalDamage;
                 data.isCritical = true;
             }
             else

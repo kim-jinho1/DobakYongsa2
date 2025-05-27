@@ -13,7 +13,7 @@ namespace Code.Core.StatSystem
         public StatSO Stat => stat;
         public StatOverride(StatSO stat) => this.stat = stat;
 
-        public StatSO CreateStat() //스탯 복제후 오버라이드 값을 넣어서 리턴해준다.
+        public StatSO CreateStat()
         {
             StatSO newStat = stat.Clone() as StatSO;
             Debug.Assert(newStat != null, $"{nameof(newStat)} stat clone failed");

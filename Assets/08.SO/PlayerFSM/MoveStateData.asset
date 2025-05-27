@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: MoveStateData
   m_EditorClassIdentifier: 
   stateName: MOVE
-  className: Blade.Players.States.PlayerMoveState
+  className: Code.Players.States.PlayerMoveState
   animParamName: MOVE
   animationHash: -643048756

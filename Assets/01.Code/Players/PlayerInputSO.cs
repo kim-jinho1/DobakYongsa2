@@ -15,8 +15,8 @@ namespace Code.Players
         public Vector2 MovementKey { get; private set; }
         private Controls _controls;
 
-        private Vector3 _worldPosition; //이게 마우스의 월드 좌표
-        private Vector2 _screenPosition; //이게 마우스가 위치한 화면좌표
+        private Vector3 _worldPosition;
+        private Vector2 _screenPosition;
 
         private void OnEnable()
         {
@@ -53,7 +53,7 @@ namespace Code.Players
 
         public Vector3 GetWorldPosition()
         {
-            Camera mainCam = Camera.main; //Unity2022부터 내부 캐싱이 되서 그냥 써도 돼.
+            Camera mainCam = Camera.main;
             Debug.Assert(mainCam != null, "No main camera in this scene");
             
             Ray cameraRay = mainCam.ScreenPointToRay(_screenPosition);
