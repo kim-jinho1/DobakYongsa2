@@ -7,8 +7,8 @@ public class CameraRotation : MonoBehaviour
     [SerializeField] private float sensitivity = 100f;
     [SerializeField] private float clampAngle = 70f;
     
-    private float rotX;
-    private float rotY;
+    private float _rotX;
+    private float _rotY;
 
     [SerializeField] private Transform realCamera;
     [SerializeField] private Vector3 dirNormalized;
@@ -20,8 +20,8 @@ public class CameraRotation : MonoBehaviour
 
     private void Start()
     {
-        rotX = transform.localRotation.eulerAngles.x;
-        rotY = transform.localRotation.eulerAngles.y;
+        _rotX = transform.localRotation.eulerAngles.x;
+        _rotY = transform.localRotation.eulerAngles.y;
         
         dirNormalized = realCamera.localPosition.normalized;
         finalDistance = realCamera.localPosition.magnitude;
@@ -29,11 +29,11 @@ public class CameraRotation : MonoBehaviour
 
     private void Update()
     {
-        rotX += -(Input.GetAxis("Mouse Y")) * sensitivity * Time.deltaTime;
-        rotY += Input.GetAxis("Mouse X") * sensitivity * Time.deltaTime;
+        _rotX += -(Input.GetAxis("Mouse Y")) * sensitivity * Time.deltaTime;
+        _rotY += Input.GetAxis("Mouse X") * sensitivity * Time.deltaTime;
         
-        rotX = Mathf.Clamp(rotX, -clampAngle, clampAngle);
-        Quaternion rotation = Quaternion.Euler(rotX, rotY, 0);
+        _rotX = Mathf.Clamp(_rotX, -clampAngle, clampAngle);
+        Quaternion rotation = Quaternion.Euler(_rotX, _rotY, 0);
         transform.rotation = rotation;
     }
 
