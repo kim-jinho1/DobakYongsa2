@@ -20,7 +20,7 @@ namespace Code.CameraSetting
         [SerializeField] private float finalDistance;
         [SerializeField] private float smoothness = 10f;
 
-        [SerializeField] private Vector3 cameraOffset = new Vector3(0.3f, 0, 0);
+        [SerializeField] private Vector3 cameraOffset;
 
         private void Start()
         {
@@ -33,7 +33,7 @@ namespace Code.CameraSetting
 
         private void Update()
         {
-            _rotX += -(Input.GetAxis("Mouse Y")) * sensitivity * Time.deltaTime;
+            _rotX += -Input.GetAxis("Mouse Y") * sensitivity * Time.deltaTime;
             _rotY += Input.GetAxis("Mouse X") * sensitivity * Time.deltaTime;
 
             _rotX = Mathf.Clamp(_rotX, -clampAngle, clampAngle);
