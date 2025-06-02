@@ -35,10 +35,6 @@ namespace Code.Combat
                     kb.KnockBack(force, attackData.knockBackDuration);
                 }
             }
-            else
-            {
-                Debug.Log("Not hit");
-            }
         }
         
         #if UNITY_EDITOR

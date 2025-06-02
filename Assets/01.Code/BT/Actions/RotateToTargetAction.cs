@@ -29,7 +29,6 @@ namespace Code.BT.Actions
             const float angleThreshold = 5f;
             return Quaternion.Angle(targetRot, Self.Value.rotation) < angleThreshold;
         }
-
     }
 }
 

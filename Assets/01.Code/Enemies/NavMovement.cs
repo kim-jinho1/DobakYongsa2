@@ -42,9 +42,9 @@ namespace Code.Enemies
             targetSO.OnValueChanged -= HandleMoveSpeedChange;
         }
 
-        private void HandleMoveSpeedChange(StatSO stat, float currentvalue, float previousvalue)
+        private void HandleMoveSpeedChange(StatSO stat, float currentValue, float previousValue)
         {
-            agent.speed = currentvalue;
+            agent.speed = currentValue;
         }
 
         private void Update()

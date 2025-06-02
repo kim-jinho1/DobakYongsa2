@@ -19,8 +19,6 @@ namespace Code.BT.Actions
             Movement.Value.SetDestination(Target.Value.position);
             return Status.Success;
         }
-
-    
     }
 }
 

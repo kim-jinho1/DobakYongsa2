@@ -24,7 +24,6 @@ namespace Code.BT.Actions
             //OldBool.Value = NewBool.Value;
             return Status.Success;
         }
-
     }
 }
 

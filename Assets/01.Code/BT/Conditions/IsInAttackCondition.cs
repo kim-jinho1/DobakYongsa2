@@ -17,6 +17,5 @@ namespace Code.BT.Conditions
             float distance = Vector3.Distance(Self.Value.transform.position, Target.Value.position);
             return distance < Self.Value.attackRange;
         }
-
     }
 }

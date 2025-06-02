@@ -19,7 +19,6 @@ namespace Code.BT.Actions
             Movement.Value.SetStop(NewValue.Value);
             return Status.Success;
         }
-
     }
 }
 
