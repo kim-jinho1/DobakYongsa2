@@ -8,6 +8,7 @@ namespace Code.Enemies.Skeletons
     public class EnemySkeletonSlave : Enemy, IKnockBackable
     {
         public UnityEvent<Vector3, float> OnKnockBackEvent;
+        
         private StateChange _stateChangeChannel;
         private CapsuleCollider _collider;
 
