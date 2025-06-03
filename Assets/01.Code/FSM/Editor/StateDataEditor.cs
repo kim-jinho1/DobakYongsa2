@@ -27,7 +27,6 @@ namespace Code.FSM.Editor
         private void CreateDropdownChoices(DropdownField dropdown)
         {
             dropdown.choices.Clear();
-            //EntityState 라는 클래스가 속해있는 어셈블리를 가져온다.
             Assembly fsmAssembly = Assembly.GetAssembly(typeof(EntityState));
 
             List<string> typeList = fsmAssembly.GetTypes()

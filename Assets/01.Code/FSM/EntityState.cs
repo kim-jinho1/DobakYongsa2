@@ -20,7 +20,7 @@ namespace Code.FSM
 
         public virtual void Enter()
         {
-            //_entityAnimator.SetParam(_animationHash, true);
+            _entityAnimator.SetParam(_animationHash, true);
             _isTriggerCall = false;
             _animatorTrigger.OnAnimationEndTrigger += AnimationEndTrigger;
         }
@@ -29,7 +29,7 @@ namespace Code.FSM
 
         public virtual void Exit()
         {
-            //_entityAnimator.SetParam(_animationHash, false);
+            _entityAnimator.SetParam(_animationHash, false);
             _animatorTrigger.OnAnimationEndTrigger -= AnimationEndTrigger;
         }
 

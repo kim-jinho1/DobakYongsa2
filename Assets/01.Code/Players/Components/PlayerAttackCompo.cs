@@ -37,7 +37,7 @@ namespace Code.Players.Components
             set
             {
                 _attackSpeed = value;
-                //_entityAnimator.SetParam(_attackSpeedHash, _attackSpeed);
+                _entityAnimator.SetParam(_attackSpeedHash, _attackSpeed);
             }
         }
         
@@ -98,7 +98,7 @@ namespace Code.Players.Components
             {
                 ComboCounter = 0;
             }
-            //_entityAnimator.SetParam(_comboCounterHash, ComboCounter);
+            _entityAnimator.SetParam(_comboCounterHash, ComboCounter);
             
         }
 

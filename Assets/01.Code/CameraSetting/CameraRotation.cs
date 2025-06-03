@@ -15,12 +15,13 @@ namespace Code.CameraSetting
         [SerializeField] private Transform realCamera;
         [SerializeField] private Vector3 dirNormalized;
         [SerializeField] private Vector3 finalDir;
-        [SerializeField] private float minDistance;
-        [SerializeField] private float maxDistance;
+        [SerializeField] private float minDistance = 1f;
+        [SerializeField] private float maxDistance = 5f;
         [SerializeField] private float finalDistance;
         [SerializeField] private float smoothness = 10f;
 
-        [SerializeField] private Vector3 cameraOffset;
+        [SerializeField] private Vector3 cameraOffset = new Vector3(0, 1.4f, 0);
+        [SerializeField] private LayerMask collisionLayers;
 
         private void Start()
         {
@@ -43,13 +44,15 @@ namespace Code.CameraSetting
 
         private void LateUpdate()
         {
-            transform.position = Vector3.MoveTowards(transform.position, objectToFollow.position, followSpeed * Time.deltaTime);
-        
-            finalDir = transform.TransformPoint((dirNormalized * maxDistance) + cameraOffset);
+            transform.position = Vector3.MoveTowards(transform.position, objectToFollow.position + cameraOffset, followSpeed * Time.deltaTime);
 
-            finalDistance = Physics.Linecast(transform.position, finalDir, out var hit) ? Mathf.Clamp(hit.distance, minDistance, maxDistance) : maxDistance;
+            finalDir = transform.TransformPoint(dirNormalized * maxDistance);
 
-            Vector3 targetPos = dirNormalized * finalDistance + cameraOffset;
+            finalDistance = Physics.Linecast(transform.position, finalDir, out var hit, collisionLayers)
+                ? Mathf.Clamp(hit.distance, minDistance, maxDistance)
+                : maxDistance;
+
+            Vector3 targetPos = dirNormalized * finalDistance;
             realCamera.localPosition = Vector3.Lerp(realCamera.localPosition, targetPos, Time.deltaTime * smoothness);
         }
     }
