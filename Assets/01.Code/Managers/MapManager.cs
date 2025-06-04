@@ -21,7 +21,7 @@ namespace Code.Managers
 
         private void HandleMap()
         {
-            mapUI.SetActive(false);
+            mapUI.SetActive(true);
         }
     }
 }

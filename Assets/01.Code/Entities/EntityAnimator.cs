@@ -7,7 +7,6 @@ namespace Code.Entities
         [SerializeField] private Animator animator;
         
         private Entity _entity;
-
         public void Initialize(Entity entity)
         {
             _entity = entity;
@@ -21,6 +20,15 @@ namespace Code.Entities
         public void SetAnimatorOff()
         {
             animator.enabled = false;
+        }
+
+        public void InApplyRootMotion()
+        {
+            animator.applyRootMotion = true;
+        }
+        public void ExitApplyRootMotion()
+        {
+            animator.applyRootMotion = false;
         }
     }
 }

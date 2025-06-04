@@ -1,5 +1,7 @@
+using System;
 using Code.Core.StatSystem;
 using Code.Entities;
+using Code.Managers;
 using UnityEngine;
 
 namespace Code.Players.Components
@@ -15,6 +17,8 @@ namespace Code.Players.Components
         [SerializeField] private Camera mainCamera;
 
         [SerializeField] private float smoothness= 10f;
+        
+        [SerializeField] private DataManager dataManager;
         public bool CanManualMovement { get; set; } = true;
         
         private float _moveSpeed = 8f;
@@ -28,6 +32,7 @@ namespace Code.Players.Components
         private Vector3 _movementDirection;
         private Entity _entity;
         private EntityStatCompo _statCompo;
+        
         public void Initialize(Entity entity)
         {
             _entity = entity;
@@ -66,7 +71,7 @@ namespace Code.Players.Components
 
             _movementDirection = (forward.normalized * input.y + right.normalized * input.x).normalized;
         }
-        
+
         private void FixedUpdate()
         {
             CalculateMovement();

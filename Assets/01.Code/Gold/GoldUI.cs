@@ -1,7 +1,7 @@
 ﻿using TMPro;
 using UnityEngine;
 
-namespace _01.Code.Gold
+namespace Code.Gold
 {
     public class GoldUI : MonoBehaviour
     {

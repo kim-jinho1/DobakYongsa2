@@ -10,7 +10,7 @@ namespace Code.Maps
         
         private void Awake()
         {
-            mapUI.SetActive(true);
+            mapUI.SetActive(false);
         }
 
         public void ExitButton()

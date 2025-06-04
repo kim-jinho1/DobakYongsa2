@@ -99,13 +99,15 @@ namespace Code.Players.Components
                 ComboCounter = 0;
             }
             _entityAnimator.SetParam(_comboCounterHash, ComboCounter);
-            
+            _entityAnimator.InApplyRootMotion();
+
         }
 
         public void EndAttack()
         {
             ComboCounter++;
             _lastAttackTime = Time.time;
+            _entityAnimator.ExitApplyRootMotion();
         }
 
         public AttackDataSO GetCurrentAttackData()
@@ -113,7 +115,5 @@ namespace Code.Players.Components
             Debug.Assert(attackDataList.Length > ComboCounter, "Combo counter is out of range");
             return attackDataList[ComboCounter];
         }
-
-        
     }
 }
