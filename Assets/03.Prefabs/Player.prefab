@@ -51,6 +51,7 @@ MonoBehaviour:
   mainCamera: {fileID: 0}
   smoothness: 10
   dataManager: {fileID: 0}
+  moveSpeed: 2
 --- !u!1 &1017078371952548248
 GameObject:
   m_ObjectHideFlags: 0
@@ -111,13 +112,13 @@ CharacterController:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Height: 2
+  m_Height: 1.4
   m_Radius: 0.2
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.03
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 1, z: 0}
+  m_Center: {x: 0, y: 0.7, z: 0}
 --- !u!114 &2241339667456937750
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -137,6 +138,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   <PlayerInput>k__BackingField: {fileID: 11400000, guid: 89ded7adc728ba240a6c75920d6964e4, type: 2}
+  sword: {fileID: 2801324061917775614}
   stateDataList:
   - {fileID: 11400000, guid: d280fe7b5a9c3ab42a9a2dd9bf89abfe, type: 2}
   - {fileID: 11400000, guid: 69d101d8b5393e24ea91cd3cef39a434, type: 2}
@@ -156,8 +158,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hpStat: {fileID: 11400000, guid: 18450e90088551941a94c45faca135f5, type: 2}
-  maxHealth: 1
-  currentHealth: 1
+  maxHealth: 5
+  currentHealth: 5
 --- !u!1 &3246053583865073184
 GameObject:
   m_ObjectHideFlags: 0
@@ -210,6 +212,8 @@ MonoBehaviour:
   attackSpeedStat: {fileID: 11400000, guid: d79eaa458fb111a458f20f36657f66c8, type: 2}
   physicalDamageStat: {fileID: 11400000, guid: 6b7e93e7a2470b840b310894b360d36c, type: 2}
   comboWindow: 0.7
+  child: {fileID: 5172937930240130034}
+  parent: {fileID: 1925455452931579871}
   useMouseDirection: 1
   damageCaster: {fileID: 1448650843577812320}
 --- !u!1 &4703047154133895447
@@ -504,7 +508,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3552393975715444642, guid: 97e762946194d054da2ce0ce3f048462, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3819444754972932805, guid: 97e762946194d054da2ce0ce3f048462, type: 3}
       propertyPath: m_LocalScale.x
@@ -566,6 +570,11 @@ PrefabInstance:
 --- !u!4 &2498806059599088537 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3819444754972932805, guid: 97e762946194d054da2ce0ce3f048462, type: 3}
+  m_PrefabInstance: {fileID: 1706000160940405084}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2801324061917775614 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3552393975715444642, guid: 97e762946194d054da2ce0ce3f048462, type: 3}
   m_PrefabInstance: {fileID: 1706000160940405084}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4630631559935171609
@@ -1147,7 +1156,7 @@ PrefabInstance:
     - target: {fileID: 5866666021909216657, guid: 10038fdbf93c4dd43af9ce774d03a956, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: e710092a71cd6a44bb150d32182c9207, type: 2}
+      objectReference: {fileID: 9100000, guid: 67af43445dbc1c34d8eef08c62943389, type: 2}
     - target: {fileID: 5866666021909216657, guid: 10038fdbf93c4dd43af9ce774d03a956, type: 3}
       propertyPath: m_CullingMode
       value: 2

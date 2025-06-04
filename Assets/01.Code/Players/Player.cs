@@ -1,5 +1,6 @@
 using Code.Entities;
 using Code.FSM;
+using Code.Managers;
 using GondrLib.Dependencies;
 using UnityEngine;
 
@@ -8,6 +9,8 @@ namespace Code.Players
     public class Player : Entity, IDependencyProvider
     {
         [field:SerializeField] public PlayerInputSO PlayerInput { get; private set; }
+
+        [SerializeField] private GameObject sword;
 
         [SerializeField] private StateDataSO[] stateDataList;
         
@@ -34,7 +37,7 @@ namespace Code.Players
 
         private void HandleRollingPressed()
         {
-            ChangeState("ROLLING");
+            //ChangeState("ROLLING");
         }
 
         private void Start()

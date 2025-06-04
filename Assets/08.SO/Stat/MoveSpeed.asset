@@ -16,7 +16,7 @@ MonoBehaviour:
   description: "\uC774\uB3D9\uC18D\uB3C4"
   icon: {fileID: 21300000, guid: 43a58f3bb8747b046a3a43c2b3cebb10, type: 3}
   displayName: MSPD
-  baseValue: 6
-  minValue: 4
-  maxValue: 20
+  baseValue: 3
+  minValue: 2
+  maxValue: 3
   <IsPercent>k__BackingField: 0

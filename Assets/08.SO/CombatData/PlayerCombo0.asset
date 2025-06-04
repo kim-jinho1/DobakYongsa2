@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackName: PlayerCombo0
   movementPower: 0
-  damageMultiplier: 1
+  damageMultiplier: 5
   damageIncrease: 0
   isPowerAttack: 0
   knockBackForce: 0.8

@@ -20,6 +20,9 @@ namespace Code.Players.Components
         private EntityStatCompo _statCompo;
         private DamageCompo _damageCompo;
 
+        [SerializeField] private Transform child;
+        [SerializeField] private Transform parent;
+        
         private readonly int _attackSpeedHash = Animator.StringToHash("ATTACK_SPEED");
         private readonly int _comboCounterHash = Animator.StringToHash("COMBO_COUNTER");
 
@@ -98,17 +101,21 @@ namespace Code.Players.Components
             {
                 ComboCounter = 0;
             }
+
             _entityAnimator.SetParam(_comboCounterHash, ComboCounter);
             _entityAnimator.InApplyRootMotion();
-
         }
+
 
         public void EndAttack()
         {
             ComboCounter++;
             _lastAttackTime = Time.time;
+
             _entityAnimator.ExitApplyRootMotion();
         }
+
+
 
         public AttackDataSO GetCurrentAttackData()
         {

@@ -18,10 +18,10 @@ namespace Code.BT.Actions
         protected override Status OnStart()
         {
             
-            //EntityAnimator.Value.SetParam(Animator.StringToHash(OldBool.Value), false);
-            //EntityAnimator.Value.SetParam(Animator.StringToHash(NewBool.Value), true);
+            EntityAnimator.Value.SetParam(Animator.StringToHash(OldBool.Value), false);
+            EntityAnimator.Value.SetParam(Animator.StringToHash(NewBool.Value), true);
 
-            //OldBool.Value = NewBool.Value;
+            OldBool.Value = NewBool.Value;
             return Status.Success;
         }
     }

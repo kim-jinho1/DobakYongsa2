@@ -21,7 +21,7 @@ namespace Code.Players.Components
         [SerializeField] private DataManager dataManager;
         public bool CanManualMovement { get; set; } = true;
         
-        private float _moveSpeed = 8f;
+        [SerializeField] private float moveSpeed = 8f;
         private Vector3 _autoMovement;
         private bool IsGround => characterController.isGrounded;
 
@@ -44,7 +44,7 @@ namespace Code.Players.Components
             StatSO targetStat = _statCompo.GetStat(moveSpeedStat);
             Debug.Assert(targetStat != null, $"{moveSpeedStat.statName} stat could not found");
             targetStat.OnValueChanged += HandleMoveSpeedChange;
-            _moveSpeed = targetStat.Value;
+            moveSpeed = targetStat.Value;
         }
 
         private void OnDestroy()
@@ -56,7 +56,7 @@ namespace Code.Players.Components
 
         private void HandleMoveSpeedChange(StatSO stat, float currentValue, float previousValue)
         {
-            _moveSpeed = currentValue;
+            moveSpeed = currentValue;
         }
 
         public void SetMovementDirection(Vector2 input)
@@ -82,7 +82,7 @@ namespace Code.Players.Components
         private void CalculateMovement()
         {
             if (CanManualMovement)
-                _velocity = _movementDirection * (_moveSpeed * Time.fixedDeltaTime);
+                _velocity = _movementDirection * (moveSpeed * Time.fixedDeltaTime);
             else
                 _velocity = _autoMovement * Time.fixedDeltaTime;
 

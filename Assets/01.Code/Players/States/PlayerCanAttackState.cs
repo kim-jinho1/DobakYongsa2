@@ -1,4 +1,5 @@
 using Code.Entities;
+using Code.Managers;
 
 namespace Code.Players.States
 {
@@ -22,7 +23,8 @@ namespace Code.Players.States
 
         private void HandleAttackPressed()
         {
-            _player.ChangeState("ATTACK");
+            if (!DataManager.OnBattle)
+                _player.ChangeState("ATTACK");
         }
     }
 }
