@@ -9,7 +9,7 @@ namespace Code.Managers
     {
         [SerializeField] private GoldUI goldUI;
 
-        public static bool OnBattle { get; private set; }
+        public bool OnBattle { get; private set; }
         public int Gold { get; private set; }
 
         private const string GOLD_KEY = "PlayerGold";
@@ -17,28 +17,28 @@ namespace Code.Managers
 
         private void Awake()
         {
-            LoadData(); // PlayerPrefs에서 데이터 불러오기
-            goldUI?.UpdateGold(Gold); // UI 초기화
+            LoadData();
+            goldUI?.UpdateGold(Gold);
             MapUI.OnSceneLoaded += Battle;
         }
 
         private void OnDestroy()
         {
-            SaveData(); // 앱 종료 시 데이터 저장
+            SaveData();
             MapUI.OnSceneLoaded -= Battle;
         }
 
         private void Battle(bool isBattle)
         {
             OnBattle = isBattle;
-            PlayerPrefs.SetInt(BATTLE_KEY, isBattle ? 1 : 0); // bool -> int
+            PlayerPrefs.SetInt(BATTLE_KEY, isBattle ? 1 : 0);
             PlayerPrefs.Save();
         }
 
         public void UpGold(int goldAmount)
         {
             Gold += goldAmount;
-            PlayerPrefs.SetInt(GOLD_KEY, Gold); // 저장
+            PlayerPrefs.SetInt(GOLD_KEY, Gold);
             PlayerPrefs.Save();
 
             goldUI?.UpdateGold(Gold);

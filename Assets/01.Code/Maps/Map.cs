@@ -11,7 +11,6 @@ namespace Code.Maps
         {
             if (other.CompareTag("Player"))
             {
-                Debug.Log("aaa");
                 OnSceneLoaded?.Invoke();
             }
         }
