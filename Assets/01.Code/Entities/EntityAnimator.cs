@@ -4,8 +4,8 @@ namespace Code.Entities
 {
     public class EntityAnimator : MonoBehaviour, IEntityComponent
     {
-        [SerializeField] private Animator animator;
-        
+        [field: SerializeField] public Animator animator { get; private set; }
+
         private Entity _entity;
         public void Initialize(Entity entity)
         {

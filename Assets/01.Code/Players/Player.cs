@@ -1,6 +1,5 @@
 using Code.Entities;
 using Code.FSM;
-using Code.Managers;
 using GondrLib.Dependencies;
 using UnityEngine;
 
