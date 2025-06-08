@@ -14,7 +14,7 @@ namespace Code.Players.Components
         [SerializeField] private StatSO physicalDamageStat;
         [SerializeField] private float comboWindow;
         private Entity _entity;
-        public EntityAnimator _entityAnimator;
+        private EntityAnimator _entityAnimator;
         private EntityVFX _vfxCompo;
         private EntityAnimatorTrigger _animatorTrigger;
         private EntityStatCompo _statCompo;

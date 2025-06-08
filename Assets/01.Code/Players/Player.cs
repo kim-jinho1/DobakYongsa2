@@ -15,6 +15,8 @@ namespace Code.Players
         
         private EntityStateMachine _stateMachine;
 
+        [field: SerializeField] public bool OnBattle  { get; private set; }
+
         [Provide]
         public Player ProvidePlayer() => this;
         
@@ -36,7 +38,8 @@ namespace Code.Players
 
         private void HandleRollingPressed()
         {
-            //ChangeState("ROLLING");
+            if (OnBattle)
+                ChangeState("KICK");
         }
 
         private void Start()

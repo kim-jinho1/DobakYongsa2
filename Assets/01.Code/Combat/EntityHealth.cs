@@ -59,7 +59,5 @@ namespace Code.Combat
             
             _entity.OnHitEvent?.Invoke();
         }
-
-        
     }
 }

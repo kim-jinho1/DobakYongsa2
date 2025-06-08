@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 62e6f16e2d484a3a829319acbf445a67, type: 3}
-  m_Name: RollingStateData
+  m_Name: KickStateData
   m_EditorClassIdentifier: 
-  stateName: ROLLING
-  className: Code.Players.States.PlayerRollingState
-  animParamName: ROLLING
-  animationHash: 1658899811
+  stateName: KICK
+  className: Code.Players.States.PlayerKickState
+  animParamName: KICK
+  animationHash: 675295921

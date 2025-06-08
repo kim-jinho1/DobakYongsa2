@@ -23,7 +23,8 @@ namespace Code.Players.States
 
         private void HandleAttackPressed()
         {
-            _player.ChangeState("ATTACK");
+            if (_player.OnBattle)
+                _player.ChangeState("ATTACK");
         }
     }
 }

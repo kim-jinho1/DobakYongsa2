@@ -144,6 +144,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 69d101d8b5393e24ea91cd3cef39a434, type: 2}
   - {fileID: 11400000, guid: 19f1a38a9fcf04247bba1d6483f3d2ec, type: 2}
   - {fileID: 11400000, guid: 6cdb46aebe6242a41ad6d3419abc3148, type: 2}
+  onBattle: 1
   rollingVelocity: 12
 --- !u!114 &7025982331855807283
 MonoBehaviour:
@@ -211,11 +212,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 256cd5ba5e6d49344bdb6f41ebfe9fb6, type: 2}
   attackSpeedStat: {fileID: 11400000, guid: d79eaa458fb111a458f20f36657f66c8, type: 2}
   physicalDamageStat: {fileID: 11400000, guid: 6b7e93e7a2470b840b310894b360d36c, type: 2}
-  comboWindow: 0.7
-  _entityAnimator: {fileID: 0}
+  comboWindow: 0.8
   child: {fileID: 5172937930240130034}
   parent: {fileID: 1925455452931579871}
-  useMouseDirection: 1
+  useMouseDirection: 0
   damageCaster: {fileID: 1448650843577812320}
 --- !u!1 &4703047154133895447
 GameObject:
@@ -373,9 +373,9 @@ MonoBehaviour:
   whatIsEnemy:
     serializedVersion: 2
     m_Bits: 128
-  castRadius: 1
-  castInterpolation: 0.5
-  castingRange: 1.6
+  castRadius: 1.42
+  castInterpolation: 0.687
+  castingRange: 1.74
 --- !u!1 &6266033511998148870
 GameObject:
   m_ObjectHideFlags: 0
