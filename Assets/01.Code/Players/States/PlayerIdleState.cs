@@ -23,10 +23,10 @@ namespace Code.Players.States
             }
             
             bool isHit = Physics.SphereCast(
-                _player.transform.position, 2, 
+                _player.transform.position, 1, 
                 _player.transform.forward, 
                 out RaycastHit hit, 
-                2,_player.WhatIsDoBak);
+                1,_player.WhatIsDoBak);
             if(isHit)
                 _player.ChangeState("DOBAK");
         }

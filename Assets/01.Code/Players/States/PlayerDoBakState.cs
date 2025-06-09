@@ -6,6 +6,7 @@ namespace Code.Players.States
 {
     public class PlayerDoBakState : PlayerState
     {
+        public GameObject doBakButton;
         private DoBakCompo _doBak;
         private MovementCompo _movementCompo;
         
@@ -19,6 +20,7 @@ namespace Code.Players.States
         {
             base.Enter();
             _player.transform.position = _doBak.Position.position;
+            _player.button.SetActive(true);
             _movementCompo.CanManualMovement = false;
         }
 

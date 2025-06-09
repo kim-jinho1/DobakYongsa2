@@ -13,6 +13,8 @@ namespace Code.Players
 
         [SerializeField] private StateDataSO[] stateDataList;
 
+        public GameObject button;
+
         [field:SerializeField] public LayerMask WhatIsDoBak { get; private set; }
         
         private EntityStateMachine _stateMachine;
