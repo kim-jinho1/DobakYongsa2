@@ -10,7 +10,7 @@ namespace Code.Managers
         [SerializeField] private GoldUI goldUI;
 
         public bool OnBattle { get; private set; }
-        public int Gold { get; private set; }
+        public int Gold { get; set; }
 
         private const string GOLD_KEY = "PlayerGold";
         private const string BATTLE_KEY = "IsBattle";

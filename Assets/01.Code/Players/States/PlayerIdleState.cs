@@ -21,6 +21,14 @@ namespace Code.Players.States
             {
                 _player.ChangeState("MOVE");
             }
+            
+            bool isHit = Physics.SphereCast(
+                _player.transform.position, 2, 
+                _player.transform.forward, 
+                out RaycastHit hit, 
+                2,_player.WhatIsDoBak);
+            if(isHit)
+                _player.ChangeState("DOBAK");
         }
     }
 }

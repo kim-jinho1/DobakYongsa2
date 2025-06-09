@@ -12,6 +12,8 @@ namespace Code.Players
         [SerializeField] private GameObject sword;
 
         [SerializeField] private StateDataSO[] stateDataList;
+
+        [field:SerializeField] public LayerMask WhatIsDoBak { get; private set; }
         
         private EntityStateMachine _stateMachine;
 
