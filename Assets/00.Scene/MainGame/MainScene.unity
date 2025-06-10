@@ -23152,6 +23152,10 @@ PrefabInstance:
       propertyPath: objectToFollow
       value: 
       objectReference: {fileID: 636262542}
+    - target: {fileID: 4592392968154996900, guid: 9a4b4c0bab428bb4a842cd16c0aa8bd6, type: 3}
+      propertyPath: collisionLayers.m_Bits
+      value: 319
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -65048,7 +65052,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8266564602133285601, guid: e9bfc91faa1b0d040bc5f1747e7cbd1c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.3
+      value: 0.643
       objectReference: {fileID: 0}
     - target: {fileID: 8266564602133285601, guid: e9bfc91faa1b0d040bc5f1747e7cbd1c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -66183,7 +66187,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 237}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: 500, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1328065937
 MonoBehaviour:
@@ -66205,10 +66209,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ??
+  m_text: In Dungeon
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: e238066aa6c140848a03ce197832b908, type: 2}
+  m_sharedMaterial: {fileID: 1599411781328126971, guid: e238066aa6c140848a03ce197832b908, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -66232,13 +66236,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 50
-  m_fontSizeBase: 50
+  m_fontSize: 100
+  m_fontSizeBase: 100
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
