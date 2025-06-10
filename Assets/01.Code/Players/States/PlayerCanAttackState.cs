@@ -1,5 +1,4 @@
 using Code.Entities;
-using Code.Managers;
 
 namespace Code.Players.States
 {

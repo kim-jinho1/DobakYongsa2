@@ -1,4 +1,3 @@
-using System;
 using Code.Core.StatSystem;
 using Code.Entities;
 using UnityEngine;

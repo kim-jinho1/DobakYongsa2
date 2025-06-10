@@ -2,7 +2,6 @@
 using Code.CameraSetting;
 using Code.Players;
 using UnityEngine;
-using UnityEngine.Events;
 
 namespace Code.Maps
 {

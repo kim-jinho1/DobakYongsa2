@@ -1,7 +1,6 @@
 using Code.Entities;
 using UnityEngine;
 using Code.Players.Components;
-using UnityEngine.XR;
 
 namespace Code.Players.States
 {

@@ -1,5 +1,4 @@
-﻿using System;
-using Code.Gold;
+﻿using Code.Gold;
 using Code.Maps;
 using UnityEngine;
 using UnityEngine.SceneManagement;
