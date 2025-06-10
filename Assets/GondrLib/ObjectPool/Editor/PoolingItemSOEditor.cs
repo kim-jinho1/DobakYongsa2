@@ -1,3 +1,4 @@
+#if UNITY_EDITOR
 using System.IO;
 using GondrLib.ObjectPool.Runtime;
 using UnityEditor;
@@ -58,3 +59,4 @@ namespace GondrLib.ObjectPool.Editor
         }
     }
 }
+#endif
