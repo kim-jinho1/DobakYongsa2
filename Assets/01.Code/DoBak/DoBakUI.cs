@@ -26,6 +26,7 @@ namespace Code.DoBak
             if (int.Parse(goldBetting.text) <= dataManager.Gold)
             {
                 StartCoroutine(DoBak());
+                bettingPanel.SetActive(false);
             }
             else
             {
@@ -47,9 +48,9 @@ namespace Code.DoBak
 
         private IEnumerator DoBak()
         {
+            animator.SetBool("In",false);
             animator.SetBool("DoBak",true);
             yield return new WaitForSeconds(2.2f);
-            animator.SetBool("In",false);
             animator.SetBool("DoBak",false);
             animator.SetBool("Hide",true);
             _randomValue = Random.Range(0, 3);
@@ -62,12 +63,14 @@ namespace Code.DoBak
         {
             if (value == _randomValue)
             {
-                dataManager.Gold += int.Parse(goldBetting.text);
+                dataManager.Gold += int.Parse(goldBetting.text) * 2;
             }
             else
             {
                 dataManager.Gold -= int.Parse(goldBetting.text);
             }
+            
+            dataManager.UpdateGold();
 
             button2.SetActive(false);
             button3.SetActive(false);
@@ -76,8 +79,8 @@ namespace Code.DoBak
             animator.SetBool("DoBak",false);
             animator.SetBool("In",true);
             animator.SetBool("Hide",false);
+            
+            button.SetActive(true);
         }
-
-
     }
 }

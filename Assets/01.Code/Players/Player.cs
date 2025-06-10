@@ -14,6 +14,7 @@ namespace Code.Players
         [SerializeField] private StateDataSO[] stateDataList;
 
         public GameObject button;
+        
 
         [field:SerializeField] public LayerMask WhatIsDoBak { get; private set; }
         
@@ -58,6 +59,7 @@ namespace Code.Players
 
         public void ChangeState(string newStateName) 
             => _stateMachine.ChangeState(newStateName);
+        
         
     }
 }

@@ -2,6 +2,7 @@
 using Code.Gold;
 using Code.Maps;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Code.Managers
 {
@@ -55,6 +56,19 @@ namespace Code.Managers
             PlayerPrefs.SetInt(GOLD_KEY, Gold);
             PlayerPrefs.SetInt(BATTLE_KEY, OnBattle ? 1 : 0);
             PlayerPrefs.Save();
+        }
+
+        public void UpdateGold()
+        {
+            goldUI.UpdateGold(Gold);
+        }
+
+        public void Update()
+        {
+            if (Gold >= 1000)
+            {
+                SceneManager.LoadScene("EndingScene");
+            }
         }
     }
 }

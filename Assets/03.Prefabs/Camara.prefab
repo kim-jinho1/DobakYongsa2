@@ -47,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectToFollow: {fileID: 0}
   followSpeed: 10
-  sensitivity: 500
+  sensitivity: 550
   clampAngle: 70
   realCamera: {fileID: 503460398494384811}
   dirNormalized: {x: 0, y: 0, z: 0}
@@ -59,7 +59,7 @@ MonoBehaviour:
   cameraOffset: {x: 0.3, y: 0.3, z: 0}
   collisionLayers:
     serializedVersion: 2
-    m_Bits: 447
+    m_Bits: 831
 --- !u!1 &8982843710178544678
 GameObject:
   m_ObjectHideFlags: 0

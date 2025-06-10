@@ -7466,6 +7466,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb9e42de87ca4b099ceef954429c2ebc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 636262543}
+  cameraRotation: {fileID: 0}
 --- !u!1001 &154339378
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22798,14 +22800,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4592392968154996900, guid: 9a4b4c0bab428bb4a842cd16c0aa8bd6, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4592392968154996900, guid: 9a4b4c0bab428bb4a842cd16c0aa8bd6, type: 3}
-      propertyPath: sensitivity
-      value: 550
-      objectReference: {fileID: 0}
-    - target: {fileID: 4592392968154996900, guid: 9a4b4c0bab428bb4a842cd16c0aa8bd6, type: 3}
       propertyPath: objectToFollow
       value: 
       objectReference: {fileID: 636262542}
@@ -29692,11 +29686,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1925455452931579871, guid: 8ba9b4567a7815b419ce18707af99de3, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 123.07
+      value: 121.127
       objectReference: {fileID: 0}
     - target: {fileID: 1925455452931579871, guid: 8ba9b4567a7815b419ce18707af99de3, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1925455452931579871, guid: 8ba9b4567a7815b419ce18707af99de3, type: 3}
       propertyPath: m_LocalRotation.x
@@ -29704,7 +29698,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1925455452931579871, guid: 8ba9b4567a7815b419ce18707af99de3, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1925455452931579871, guid: 8ba9b4567a7815b419ce18707af99de3, type: 3}
       propertyPath: m_LocalRotation.z
@@ -29716,7 +29710,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1925455452931579871, guid: 8ba9b4567a7815b419ce18707af99de3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 180
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1925455452931579871, guid: 8ba9b4567a7815b419ce18707af99de3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -54804,7 +54798,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1311371613}
         m_TargetAssemblyTypeName: Code.DoBak.DoBakUI, Assembly-CSharp
-        m_MethodName: ExitBetting
+        m_MethodName: CanBetting
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -64631,6 +64625,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 1945847405081260086, guid: e9bfc91faa1b0d040bc5f1747e7cbd1c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2556202230853199389, guid: e9bfc91faa1b0d040bc5f1747e7cbd1c, type: 3}
       propertyPath: m_Layer
       value: 9
@@ -64697,7 +64695,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8266564602133285601, guid: e9bfc91faa1b0d040bc5f1747e7cbd1c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -13.17
+      value: -1.81
       objectReference: {fileID: 0}
     - target: {fileID: 8266564602133285601, guid: e9bfc91faa1b0d040bc5f1747e7cbd1c, type: 3}
       propertyPath: m_LocalPosition.y
@@ -100470,7 +100468,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1311371613}
         m_TargetAssemblyTypeName: Code.DoBak.DoBakUI, Assembly-CSharp
-        m_MethodName: CanBetting
+        m_MethodName: ExitBetting
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

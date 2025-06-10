@@ -1,10 +1,15 @@
 ﻿using System;
+using Code.CameraSetting;
+using Code.Players;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Code.Maps
 {
     public class Map : MonoBehaviour
     {
+        public Player player; 
+        public CameraRotation cameraRotation;
         public event Action OnSceneLoaded;
         
         private void OnTriggerEnter(Collider other)
