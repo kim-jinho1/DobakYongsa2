@@ -81,7 +81,7 @@ MonoBehaviour:
   - rid: 8217392759554179456
   - rid: 8217392759554179457
   - rid: 8217392759554179458
-  m_VersionTimestamp: 638850227051581081
+  m_VersionTimestamp: 638851499917815744
   m_DebugInfo: {fileID: 8854556690399697859}
   m_RuntimeGraph: {fileID: 4094745056924559612}
   AssetID:
@@ -4241,8 +4241,8 @@ MonoBehaviour:
         - rid: 8217392645971378935
         - rid: 8217392645971378936
         NodeType:
-          m_SerializableType: AddGoldOnEnemyDeathAction, Assembly-CSharp, Version=0.0.0.0,
-            Culture=neutral, PublicKeyToken=null
+          m_SerializableType: Code.BT.Actions.AddGoldOnEnemyDeathAction, Assembly-CSharp,
+            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
         NodeTypeID:
           m_Value0: 3342889047126821323
           m_Value1: 14529810326768022488
@@ -4448,18 +4448,17 @@ MonoBehaviour:
     - rid: 8217392757908701269
       type: {class: ActionNodeModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
       data:
-        Position: {x: 646.6369, y: 324.31693}
+        Position: {x: 511.3667, y: 241.01363}
         ID:
           m_Value0: 8239801864858527462
           m_Value1: 6858697410072437191
-        Parents:
-        - rid: 8217392758868410791
+        Parents: []
         PortModels:
         - rid: 8217392757908701270
         - rid: 8217392757908701271
         NodeType:
-          m_SerializableType: EnemyHitAction, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-            PublicKeyToken=null
+          m_SerializableType: Code.BT.Actions.EnemyHitAction, Assembly-CSharp, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
         NodeTypeID:
           m_Value0: 4515979099460892553
           m_Value1: 15176885242384559600
@@ -4524,7 +4523,6 @@ MonoBehaviour:
         - rid: 8217392758868410792
         - rid: 8217392758868410793
         Nodes:
-        - rid: 8217392757908701269
         - rid: 8217392758868411062
         - rid: 8217392759535042864
         - rid: 8217392759554179456
@@ -5178,7 +5176,7 @@ MonoBehaviour:
         AuthoringAssetID:
           m_Value0: 9581856674060321098
           m_Value1: 3420170539119082649
-        m_DebugInfo: {fileID: 0}
+        m_DebugInfo: {fileID: 8854556690399697859}
         BlackboardReference:
           rid: 8217392759554179844
         BlackboardGroupReferences: []
@@ -5190,7 +5188,7 @@ MonoBehaviour:
           rid: 8217392759554179846
         m_EndedNodes:
           rid: 8217392759554179847
-        m_VersionTimestamp: 638850227051581081
+        m_VersionTimestamp: 638851499917815744
     - rid: 8217392759554179844
       type: {class: BlackboardReference, ns: Unity.Behavior, asm: Unity.Behavior}
       data:
