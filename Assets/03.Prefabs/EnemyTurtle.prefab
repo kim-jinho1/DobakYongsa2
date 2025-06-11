@@ -412,7 +412,7 @@ GameObject:
   - component: {fileID: 7974310523154120630}
   - component: {fileID: 1801294649455104711}
   m_Layer: 0
-  m_Name: SkeletonStat
+  m_Name: EnemyStat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -451,7 +451,7 @@ MonoBehaviour:
     overrideBaseValue: 1
   - stat: {fileID: 11400000, guid: 18450e90088551941a94c45faca135f5, type: 2}
     isUseOverride: 1
-    overrideBaseValue: 40
+    overrideBaseValue: 100
   - stat: {fileID: 11400000, guid: 6b7e93e7a2470b840b310894b360d36c, type: 2}
     isUseOverride: 1
     overrideBaseValue: 4

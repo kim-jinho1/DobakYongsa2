@@ -69,13 +69,13 @@ namespace Code.Players.Components
             right.y = 0;
 
             _movementDirection = (forward.normalized * input.y + right.normalized * input.x).normalized;
+
         }
 
         private void FixedUpdate()
         {
             CalculateMovement();
-            ApplyGravity();
-            Move();
+            ApplyGravity(); ;
         }
 
         private void CalculateMovement()
@@ -84,7 +84,7 @@ namespace Code.Players.Components
                 _velocity = _movementDirection * (moveSpeed * Time.fixedDeltaTime);
             else
                 _velocity = _autoMovement * Time.fixedDeltaTime;
-
+            
             if (_velocity.sqrMagnitude > 0.0001f)
             {
                 Quaternion targetRotation = Quaternion.LookRotation(new Vector3(_velocity.x, 0, _velocity.z));
@@ -92,7 +92,6 @@ namespace Code.Players.Components
                 parent.rotation = Quaternion.Lerp(parent.rotation, targetRotation, Time.fixedDeltaTime * rotationSpeed);
             }
         }
-
         
         private void ApplyGravity()
         {
@@ -102,11 +101,6 @@ namespace Code.Players.Components
                 _verticalVelocity += gravity * Time.fixedDeltaTime;
             
             _velocity.y = _verticalVelocity;
-        }
-        
-        private void Move()
-        {
-            characterController.Move(_velocity);
         }
         
         public void StopImmediately()
