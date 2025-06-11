@@ -4,56 +4,62 @@ namespace Code.CameraSetting
 {
     public class CameraRotation : MonoBehaviour
     {
+        [Header("Follow Settings")]
+        [Tooltip("Camera will follow this object (usually the player)")]
         [SerializeField] private Transform objectToFollow;
+        [SerializeField] private Vector3 cameraOffset = new Vector3(0f, 1.4f, 0f);
         [SerializeField] private float followSpeed = 10f;
+
+        [Header("Rotation Settings")]
         [SerializeField] private float sensitivity = 100f;
-        [SerializeField] private float clampAngle = 70f;
+        [SerializeField] private float topClamp = 70f;
+        [SerializeField] private float bottomClamp = -30f;
+        [SerializeField] private float rotationLerpSpeed = 10f;
 
-        private float _rotX;
-        private float _rotY;
-
+        [Header("Collision Settings")]
         [SerializeField] private Transform realCamera;
-        [SerializeField] private Vector3 dirNormalized;
-        [SerializeField] private Vector3 finalDir;
+        [SerializeField] private LayerMask collisionLayers;
         [SerializeField] private float minDistance = 1f;
         [SerializeField] private float maxDistance = 5f;
-        [SerializeField] private float finalDistance;
         [SerializeField] private float smoothness = 10f;
 
-        [SerializeField] private Vector3 cameraOffset = new Vector3(0, 1.4f, 0);
-        [SerializeField] private LayerMask collisionLayers;
+        private float _yaw;
+        private float _pitch;
+        private Vector3 _defaultCameraDirection;
 
         private void Start()
         {
-            _rotX = transform.localRotation.eulerAngles.x;
-            _rotY = transform.localRotation.eulerAngles.y;
-
-            dirNormalized = (realCamera.localPosition + cameraOffset).normalized;
-            finalDistance = realCamera.localPosition.magnitude;
+            Vector3 cameraLocalPosition = realCamera.localPosition + cameraOffset;
+            _defaultCameraDirection = cameraLocalPosition.normalized;
         }
 
         private void Update()
         {
-            _rotX += -Input.GetAxis("Mouse Y") * sensitivity * Time.deltaTime;
-            _rotY += Input.GetAxis("Mouse X") * sensitivity * Time.deltaTime;
+            _yaw += Input.GetAxis("Mouse X") * sensitivity * Time.deltaTime;
+            _pitch += -Input.GetAxis("Mouse Y") * sensitivity * Time.deltaTime;
+            _pitch = Mathf.Clamp(_pitch, bottomClamp, topClamp);
 
-            _rotX = Mathf.Clamp(_rotX, -clampAngle, clampAngle);
-            Quaternion rotation = Quaternion.Euler(_rotX, _rotY, 0);
-            transform.rotation = rotation;
+            Quaternion targetRotation = Quaternion.Euler(_pitch, _yaw, 0);
+            transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, Time.deltaTime * rotationLerpSpeed);
         }
 
         private void LateUpdate()
         {
-            transform.position = Vector3.MoveTowards(transform.position, objectToFollow.position + cameraOffset, followSpeed * Time.deltaTime);
+            if (objectToFollow == null || realCamera == null) return;
+            
+            Vector3 followTarget = objectToFollow.position + cameraOffset;
+            transform.position = Vector3.Lerp(transform.position, followTarget, followSpeed * Time.deltaTime);
+            
+            Vector3 desiredCameraPosWorld = transform.TransformPoint(_defaultCameraDirection * maxDistance);
+            float targetDistance = maxDistance;
 
-            finalDir = transform.TransformPoint(dirNormalized * maxDistance);
+            if (Physics.Linecast(transform.position, desiredCameraPosWorld, out RaycastHit hit, collisionLayers))
+            {
+                targetDistance = Mathf.Clamp(hit.distance, minDistance, maxDistance);
+            }
 
-            finalDistance = Physics.Linecast(transform.position, finalDir, out var hit, collisionLayers)
-                ? Mathf.Clamp(hit.distance, minDistance, maxDistance)
-                : maxDistance;
-
-            Vector3 targetPos = dirNormalized * finalDistance;
-            realCamera.localPosition = Vector3.Lerp(realCamera.localPosition, targetPos, Time.deltaTime * smoothness);
+            Vector3 finalCameraLocalPos = _defaultCameraDirection * targetDistance;
+            realCamera.localPosition = Vector3.Lerp(realCamera.localPosition, finalCameraLocalPos, Time.deltaTime * smoothness);
         }
     }
 }

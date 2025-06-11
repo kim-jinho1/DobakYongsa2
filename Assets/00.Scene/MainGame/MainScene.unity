@@ -22800,7 +22800,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4592392968154996900, guid: 9a4b4c0bab428bb4a842cd16c0aa8bd6, type: 3}
       propertyPath: maxDistance
-      value: 2
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4592392968154996900, guid: 9a4b4c0bab428bb4a842cd16c0aa8bd6, type: 3}
+      propertyPath: cameraOffset.y
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4592392968154996900, guid: 9a4b4c0bab428bb4a842cd16c0aa8bd6, type: 3}
       propertyPath: objectToFollow
@@ -30648,6 +30652,10 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0.65145
       objectReference: {fileID: 0}
+    - target: {fileID: 9100997122809858328, guid: 8ba9b4567a7815b419ce18707af99de3, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 868304132}
     - target: {fileID: 9133421090804393435, guid: 8ba9b4567a7815b419ce18707af99de3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.026000023
