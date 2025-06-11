@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 52858a2fcdb241fb920c32a80f763b80, type: 3}
-  m_Name: PlayerCombo2
+  m_Name: Kick
   m_EditorClassIdentifier: 
-  attackName: PlayerCombo2
+  attackName: Kick
   movementPower: 0
-  damageMultiplier: 1.5
+  damageMultiplier: 0.1
   damageIncrease: 0
-  isPowerAttack: 1
-  knockBackForce: 2
+  isPowerAttack: 0
+  knockBackForce: 3
   knockBackDuration: 0

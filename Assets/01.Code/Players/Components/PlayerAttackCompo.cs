@@ -103,7 +103,6 @@ namespace Code.Players.Components
             }
 
             _entityAnimator.SetParam(_comboCounterHash, ComboCounter);
-            //_entityAnimator.InApplyRootMotion();
         }
 
 
@@ -111,12 +110,8 @@ namespace Code.Players.Components
         {
             ComboCounter++;
             _lastAttackTime = Time.time;
-
-            //_entityAnimator.ExitApplyRootMotion();
         }
-
-
-
+        
         public AttackDataSO GetCurrentAttackData()
         {
             Debug.Assert(attackDataList.Length > ComboCounter, "Combo counter is out of range");

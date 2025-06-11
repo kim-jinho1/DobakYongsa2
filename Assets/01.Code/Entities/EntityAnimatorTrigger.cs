@@ -10,6 +10,7 @@ namespace Code.Entities
         public event Action OnAttackVFXTrigger;
         public event Action<bool> OnManualRotationTrigger;
         public event Action OnDamageCastTrigger;
+        public event Action OnKickTrigger;
         private Entity _entity;
         
         public void Initialize(Entity entity)
@@ -23,6 +24,7 @@ namespace Code.Entities
         }
         
         private void RollingStart() => OnRollingStatusChange?.Invoke(true);
+        private void KickCast() => OnKickTrigger?.Invoke();
         private void RollingEnd() => OnRollingStatusChange?.Invoke(false);
         private void PlayAttackVFX() => OnAttackVFXTrigger?.Invoke();
         private void StartManualRotation() => OnManualRotationTrigger?.Invoke(true);

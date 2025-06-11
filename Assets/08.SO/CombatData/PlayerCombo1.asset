@@ -18,4 +18,4 @@ MonoBehaviour:
   damageIncrease: 0
   isPowerAttack: 0
   knockBackForce: 0.8
-  knockBackDuration: 0.45
+  knockBackDuration: 0

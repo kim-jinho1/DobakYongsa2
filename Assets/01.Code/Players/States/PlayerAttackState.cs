@@ -19,7 +19,6 @@ namespace Code.Players.States
         {
             base.Enter();
             _attackCompo.Attack();
-            //_rootMotion.InRootMotion(_attackCompo._entityAnimator);
             _movementCompo.CanManualMovement = false;
         }
 
@@ -27,9 +26,6 @@ namespace Code.Players.States
         {
             _attackCompo.EndAttack();
             _movementCompo.CanManualMovement = true;
-            //_rootMotion.ExitRootMotion(_attackCompo._entityAnimator);
-            // _player.transform.position = _rootMotion.ChangePositon();
-            // _player.transform.rotation = _rootMotion.ChangeRotation();
             _movementCompo.StopImmediately();
             base.Exit();
         }

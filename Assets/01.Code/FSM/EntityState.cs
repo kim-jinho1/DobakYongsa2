@@ -1,4 +1,5 @@
 using Code.Entities;
+using UnityEngine;
 
 namespace Code.FSM
 {
@@ -20,10 +21,13 @@ namespace Code.FSM
 
         public virtual void Enter()
         {
+            Debug.Log(_animationHash);
+            //_entityAnimator.CrossFadeToState(_animationHash, 0.2f);
             _entityAnimator.SetParam(_animationHash, true);
             _isTriggerCall = false;
             _animatorTrigger.OnAnimationEndTrigger += AnimationEndTrigger;
         }
+
 
         public virtual void Update() { }
 
@@ -32,6 +36,7 @@ namespace Code.FSM
             _entityAnimator.SetParam(_animationHash, false);
             _animatorTrigger.OnAnimationEndTrigger -= AnimationEndTrigger;
         }
+
 
         public virtual void AnimationEndTrigger() => _isTriggerCall = true;
     }
