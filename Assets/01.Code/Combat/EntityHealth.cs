@@ -12,8 +12,8 @@ namespace Code.Combat
 
         [SerializeField] private StatSO hpStat;
         [SerializeField] private float maxHealth;
-        [SerializeField] private float currentHealth; 
-        
+        [field: SerializeField] public float CurrentHealth { get; private set; }
+
         public void Initialize(Entity entity)
         {
             _entity = entity;
@@ -26,7 +26,7 @@ namespace Code.Combat
             StatSO target = _statCompo.GetStat(hpStat);
             Debug.Assert(target != null, $"{hpStat.statName} does not exist");
             target.OnValueChanged += HandleMaxHPChanged;
-            currentHealth = maxHealth = target.Value;
+            CurrentHealth = maxHealth = target.Value;
         }
 
         private void OnDestroy()
@@ -41,17 +41,17 @@ namespace Code.Combat
             float changed = currentvalue - previousvalue;
             maxHealth = currentvalue;
             if (changed > 0)
-                currentHealth = Mathf.Clamp(currentHealth + changed, 0, maxHealth);
+                CurrentHealth = Mathf.Clamp(CurrentHealth + changed, 0, maxHealth);
             else
-                currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+                CurrentHealth = Mathf.Clamp(CurrentHealth, 0, maxHealth);
         }
 
         public void ApplyDamage(DamageData damageData, Vector3 hitPoint, Vector3 hitNormal, AttackDataSO attackData, Entity dealer)
         {
             _actionData.HitNormal = hitNormal;
             _actionData.HitPoint = hitPoint;
-            currentHealth = Mathf.Clamp(currentHealth - damageData.damage, 0, maxHealth);
-            if (currentHealth <= 0)
+            CurrentHealth = Mathf.Clamp(CurrentHealth - damageData.damage, 0, maxHealth);
+            if (CurrentHealth <= 0)
             {
                 _entity.OnDeathEvent?.Invoke();
             }

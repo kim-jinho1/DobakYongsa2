@@ -20,8 +20,7 @@ namespace Code.Combat
                 whatIsEnemy);
 
             if (isHit)
-            {
-                Debug.Log($"<color=red>Hit</color> {hit.collider.name}");
+            { ;
                 if(hit.collider.TryGetComponent(out IDamageable damageable))
                 {
                     float damage = 5f;

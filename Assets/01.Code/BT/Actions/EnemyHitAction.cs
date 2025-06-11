@@ -11,26 +11,11 @@ namespace Code.BT.Actions
     public partial class EnemyHitAction : Action
     {
         [SerializeReference] public BlackboardVariable<ParticleSystem> Particles;
-
-        private bool isHitEnd = false;
-
         protected override Status OnStart()
         {
             var par = Particles.Value;
             par.Play();
-            return Status.Running;
-        }
-
-        private void EndHit()
-        {
-            isHitEnd = true;
-        }
-
-        protected override Status OnUpdate()
-        {
-            if (isHitEnd)
-                return Status.Success;
-            return Status.Running;
+            return Status.Success;
         }
     }
 }

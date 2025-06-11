@@ -20,8 +20,6 @@ namespace Code.Managers
             LoadData();
             goldUI?.UpdateGold(Gold);
             MapUI.OnSceneLoaded += Battle;
-            // Gold = 900;
-            // goldUI.UpdateGold(Gold);
         }
 
         private void OnDestroy()
