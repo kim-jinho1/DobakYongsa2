@@ -11,9 +11,9 @@ namespace Code.Combat
 
         public float slowFactor = 0.05f;
         public float slowLength = 4f;
-        public float freezeDuration = 0.5f; // ⬅️ 새로 추가됨
+        public float freezeDuration = 0.5f;
 
-        private bool isInSlowMotion;
+        private bool _isInSlowMotion;
 
         public override void CastDamage(DamageData damageData, Vector3 position, Vector3 direction, AttackDataSO attackData)
         {
@@ -31,7 +31,7 @@ namespace Code.Combat
                     Vector3 hitPoint = collider.ClosestPoint(center);
                     Vector3 hitNormal = (hitPoint - center).normalized;
                     damageable.ApplyDamage(damageData, hitPoint, hitNormal, attackData, _owner);
-                    if (!isInSlowMotion) StartCoroutine(DoSlowMotion());
+                    if (!_isInSlowMotion) StartCoroutine(DoSlowMotion());
                 }
 
                 if (collider.TryGetComponent(out IKnockBackable kb))
@@ -44,7 +44,7 @@ namespace Code.Combat
 
         private IEnumerator DoSlowMotion()
         {
-            isInSlowMotion = true;
+            _isInSlowMotion = true;
             
             Time.timeScale = 0f;
             Time.fixedDeltaTime = 0f;
@@ -68,7 +68,7 @@ namespace Code.Combat
 
             Time.timeScale = 1f;
             Time.fixedDeltaTime = 0.02f;
-            isInSlowMotion = false;
+            _isInSlowMotion = false;
         }
         
 #if UNITY_EDITOR
