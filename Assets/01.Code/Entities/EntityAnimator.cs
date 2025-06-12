@@ -23,7 +23,7 @@ namespace Code.Entities
             animator.enabled = false;
         }
 
-        public void CrossFadeToState(int stateHash, float duration = 0.2f, int layer = -1, float normalizedTime = 0f)
+        public void CrossFadeToState(int stateHash, float duration = 0.2f, int layer = 0, float normalizedTime = 0f)
         {
             animator.CrossFade(stateHash, duration, layer, normalizedTime);
         }

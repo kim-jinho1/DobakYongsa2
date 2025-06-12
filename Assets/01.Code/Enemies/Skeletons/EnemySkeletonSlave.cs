@@ -1,3 +1,4 @@
+using System.Collections;
 using Code.BT.Events;
 using Code.Combat;
 using UnityEngine;
@@ -7,6 +8,8 @@ namespace Code.Enemies.Skeletons
 {
     public class EnemySkeletonSlave : Enemy, IKnockBackable
     {
+        [SerializeField] private GameObject visual;
+        [SerializeField] private GameObject respawnPos;
         [SerializeField] private ParticleSystem particleSystem;
         public UnityEvent<Vector3, float> OnKnockBackEvent;
         
@@ -37,12 +40,32 @@ namespace Code.Enemies.Skeletons
 
         private void HandleDeathEvent()
         {
-            if(IsDead)
-                return;
+            if (IsDead) return;
             IsDead = true;
             _collider.enabled = false;
             _stateChangeChannel.SendEventMessage(EnemyState.DEAD);
+            StartCoroutine(RespawnRoutine());
         }
+
+        private IEnumerator RespawnRoutine()
+        {
+            yield return new WaitForSeconds(3f);
+            visual.SetActive(false);
+
+            yield return new WaitForSeconds(5f);
+            Respawn();
+        }
+
+        private void Respawn()
+        {
+            _health.ResetHealth();
+            _collider.enabled = true;
+            IsDead = false;
+            visual.SetActive(true);
+            transform.position = respawnPos.transform.position;
+            _stateChangeChannel.SendEventMessage(EnemyState.RESPAWN);
+        }
+
 
         private void HandleHitEvent()
         {

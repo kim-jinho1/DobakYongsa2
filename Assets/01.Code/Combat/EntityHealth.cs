@@ -45,6 +45,11 @@ namespace Code.Combat
             else
                 CurrentHealth = Mathf.Clamp(CurrentHealth, 0, maxHealth);
         }
+        
+        public void ResetHealth()
+        {
+            CurrentHealth = maxHealth;
+        }
 
         public void ApplyDamage(DamageData damageData, Vector3 hitPoint, Vector3 hitNormal, AttackDataSO attackData, Entity dealer)
         {

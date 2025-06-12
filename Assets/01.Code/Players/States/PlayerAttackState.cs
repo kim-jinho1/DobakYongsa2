@@ -15,9 +15,12 @@ namespace Code.Players.States
             _attackCompo = entity.GetCompo<PlayerAttackCompo>();
             _rootMotion = entity.GetCompo<RootMotionCompo>();
         }
+        
         public override void Enter()
         {
-            base.Enter();
+            _entityAnimator.SetParam(_animationHash, true);
+            _isTriggerCall = false;
+            _animatorTrigger.OnAnimationEndTrigger += AnimationEndTrigger;
             _attackCompo.Attack();
             _movementCompo.CanManualMovement = false;
         }
@@ -27,7 +30,8 @@ namespace Code.Players.States
             _attackCompo.EndAttack();
             _movementCompo.CanManualMovement = true;
             _movementCompo.StopImmediately();
-            base.Exit();
+            _entityAnimator.SetParam(_animationHash, false);
+            _animatorTrigger.OnAnimationEndTrigger -= AnimationEndTrigger;
         }
         public override void Update()
         {

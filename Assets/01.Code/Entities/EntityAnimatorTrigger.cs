@@ -6,7 +6,6 @@ namespace Code.Entities
     public class EntityAnimatorTrigger : MonoBehaviour, IEntityComponent
     {
         public Action OnAnimationEndTrigger;
-        public event Action<bool> OnRollingStatusChange;
         public event Action OnAttackVFXTrigger;
         public event Action<bool> OnManualRotationTrigger;
         public event Action OnDamageCastTrigger;
@@ -23,9 +22,7 @@ namespace Code.Entities
             OnAnimationEndTrigger?.Invoke();
         }
         
-        private void RollingStart() => OnRollingStatusChange?.Invoke(true);
         private void KickCast() => OnKickTrigger?.Invoke();
-        private void RollingEnd() => OnRollingStatusChange?.Invoke(false);
         private void PlayAttackVFX() => OnAttackVFXTrigger?.Invoke();
         private void StartManualRotation() => OnManualRotationTrigger?.Invoke(true);
         private void StopManualRotation() => OnManualRotationTrigger?.Invoke(false);

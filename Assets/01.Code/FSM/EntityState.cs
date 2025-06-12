@@ -21,8 +21,7 @@ namespace Code.FSM
 
         public virtual void Enter()
         {
-            Debug.Log(_animationHash);
-            //_entityAnimator.CrossFadeToState(_animationHash, 0.2f);
+            _entityAnimator.CrossFadeToState(_animationHash, 0.2f);
             _entityAnimator.SetParam(_animationHash, true);
             _isTriggerCall = false;
             _animatorTrigger.OnAnimationEndTrigger += AnimationEndTrigger;
