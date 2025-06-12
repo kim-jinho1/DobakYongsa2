@@ -23665,7 +23665,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  cameraRotation: {fileID: 0}
 --- !u!65 &394421735
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -104282,9 +104281,21 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2241339667456937750, guid: 8ba9b4567a7815b419ce18707af99de3, type: 3}
+      propertyPath: entityHealth
+      value: 
+      objectReference: {fileID: 1686739118}
+    - target: {fileID: 2241339667456937750, guid: 8ba9b4567a7815b419ce18707af99de3, type: 3}
+      propertyPath: stateDataList.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2241339667456937750, guid: 8ba9b4567a7815b419ce18707af99de3, type: 3}
       propertyPath: <OnBattle>k__BackingField
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2241339667456937750, guid: 8ba9b4567a7815b419ce18707af99de3, type: 3}
+      propertyPath: 'stateDataList.Array.data[4]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 96142684dd24f904c99969638ef36d09, type: 2}
     - target: {fileID: 2241339667456937750, guid: 8ba9b4567a7815b419ce18707af99de3, type: 3}
       propertyPath: <WhatIsDoBak>k__BackingField.m_Bits
       value: 512
@@ -105372,6 +105383,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5172937930240130034, guid: 8ba9b4567a7815b419ce18707af99de3, type: 3}
   m_PrefabInstance: {fileID: 1686739108}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1686739118 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7025982331855807283, guid: 8ba9b4567a7815b419ce18707af99de3, type: 3}
+  m_PrefabInstance: {fileID: 1686739108}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1040835292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a76bd1bbcf04f52bd04a884a1840f4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1687182707 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1024083287037841561, guid: 9a4b4c0bab428bb4a842cd16c0aa8bd6, type: 3}
@@ -109911,6 +109933,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyBomb 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1790710517290128771, guid: 32a725219dd7441449f3c297aa4c2307, type: 3}
+      propertyPath: attackData
+      value: 
+      objectReference: {fileID: 11400000, guid: 5007b0c919f9c6d418c04df7c9f78ab7, type: 2}
+    - target: {fileID: 1790710517290128771, guid: 32a725219dd7441449f3c297aa4c2307, type: 3}
+      propertyPath: attackRadius
+      value: 1.43
+      objectReference: {fileID: 0}
+    - target: {fileID: 1790710517290128771, guid: 32a725219dd7441449f3c297aa4c2307, type: 3}
+      propertyPath: enemyAttackRange
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1790710517290128771, guid: 32a725219dd7441449f3c297aa4c2307, type: 3}
+      propertyPath: whatIsPlayer.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 1790710517290128771, guid: 32a725219dd7441449f3c297aa4c2307, type: 3}
+      propertyPath: entityAnimatorTrigger
+      value: 
+      objectReference: {fileID: 2017361457}
+    - target: {fileID: 3473571155263639779, guid: 32a725219dd7441449f3c297aa4c2307, type: 3}
+      propertyPath: managedReferences[6706508115038175614].m_Value
+      value: 
+      objectReference: {fileID: 1686739112}
     - target: {fileID: 3473571155263639779, guid: 32a725219dd7441449f3c297aa4c2307, type: 3}
       propertyPath: managedReferences[8217392677542429084].m_Value
       value: 
@@ -126290,6 +126336,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8290689258756950089, guid: a9b8ba1831e8a76488572601a09b8381, type: 3}
   m_PrefabInstance: {fileID: 2017164011}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2017361457 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3255302173518276423, guid: 32a725219dd7441449f3c297aa4c2307, type: 3}
+  m_PrefabInstance: {fileID: 1754176964}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d14d5932c184a3daff2597d68101238, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2018613734
 PrefabInstance:
   m_ObjectHideFlags: 0

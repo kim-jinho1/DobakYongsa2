@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Code.CameraSetting;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using DG.Tweening;
@@ -6,7 +7,6 @@ using DG.Tweening;
 public class SceneFadeManager : MonoBehaviour
 {
     public static SceneFadeManager Instance;
-
     [SerializeField] private Image fadeImage;
 
     private void Awake()
@@ -33,6 +33,7 @@ public class SceneFadeManager : MonoBehaviour
     public void Exit(GameObject game)
     {
         game.SetActive(false);
+        CameraRotation.IsUI = false;
     }
 
     public void FadeOutAndLoadScene(string sceneName)

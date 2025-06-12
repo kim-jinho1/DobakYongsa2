@@ -1,3 +1,4 @@
+using Code.CameraSetting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,6 +10,7 @@ public class ExitUI : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.P))
         {
+            CameraRotation.IsUI = true;
             exitUI.SetActive(true);
         }
     }

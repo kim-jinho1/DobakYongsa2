@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Code.CameraSetting
@@ -23,9 +24,15 @@ namespace Code.CameraSetting
         [SerializeField] private float maxDistance = 5f;
         [SerializeField] private float smoothness = 10f;
 
+        public static bool IsUI { get; set; } = false;
         private float _yaw;
         private float _pitch;
         private Vector3 _defaultCameraDirection;
+
+        private void OnEnable()
+        {
+            IsUI = false;
+        }
 
         private void Start()
         {
@@ -35,6 +42,8 @@ namespace Code.CameraSetting
 
         private void Update()
         {
+            if (IsUI)
+                return;
             _yaw += Input.GetAxis("Mouse X") * sensitivity * Time.deltaTime;
             _pitch += -Input.GetAxis("Mouse Y") * sensitivity * Time.deltaTime;
             _pitch = Mathf.Clamp(_pitch, bottomClamp, topClamp);
@@ -45,7 +54,8 @@ namespace Code.CameraSetting
 
         private void LateUpdate()
         {
-            if (objectToFollow == null || realCamera == null) return;
+            if (objectToFollow == null || realCamera == null || IsUI) 
+                return;
             
             Vector3 followTarget = objectToFollow.position + cameraOffset;
             transform.position = Vector3.Lerp(transform.position, followTarget, followSpeed * Time.deltaTime);

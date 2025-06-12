@@ -10,6 +10,7 @@ namespace Code.Entities
         public event Action<bool> OnManualRotationTrigger;
         public event Action OnDamageCastTrigger;
         public event Action OnKickTrigger;
+        public event Action OnEnemyAttack;
         private Entity _entity;
         
         public void Initialize(Entity entity)
@@ -27,5 +28,7 @@ namespace Code.Entities
         private void StartManualRotation() => OnManualRotationTrigger?.Invoke(true);
         private void StopManualRotation() => OnManualRotationTrigger?.Invoke(false);
         private void DamageCast() => OnDamageCastTrigger?.Invoke();
+
+        private void EnemyAttackCast() => OnEnemyAttack?.Invoke();
     }
 }
