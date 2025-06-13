@@ -13,6 +13,8 @@ namespace Code.Players
         [field:SerializeField] public PlayerInputSO PlayerInput { get; private set; }
         
         [SerializeField] private HealthBar healthBar;
+        
+        [SerializeField] private ParticleSystem particleSystem;
 
         [SerializeField] private EntityHealth entityHealth;
 
@@ -87,11 +89,13 @@ namespace Code.Players
             {
                 IsDie = true;
                 characterController.center += Vector3.up * 0.5f;
+                particleSystem.Play();
                 _stateMachine.ChangeState("DIE");
                 CameraRotation.IsUI = true;
             }
             else
             {
+                particleSystem.Play();
                 _stateMachine.ChangeState("HIT");
             }
         }
