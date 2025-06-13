@@ -1,3 +1,5 @@
+using System.Collections;
+using Code.CameraSetting;
 using Code.Combat;
 using Code.Entities;
 using Code.FSM;
@@ -9,16 +11,23 @@ namespace Code.Players
     public class Player : Entity, IDependencyProvider , IDamageable, IKnockBackable 
     {
         [field:SerializeField] public PlayerInputSO PlayerInput { get; private set; }
+        
+        [SerializeField] private HealthBar healthBar;
 
         [SerializeField] private EntityHealth entityHealth;
 
         [SerializeField] private GameObject sword;
 
         [SerializeField] private StateDataSO[] stateDataList;
+        
+        [SerializeField] private CharacterController characterController;
 
         public GameObject button;
-
+        
+        public Animator animator;
+        
         public bool IsHit { get; set; } = false;
+        public bool IsDie { get; set; } = false;
         [field:SerializeField] public LayerMask WhatIsDoBak { get; private set; }
         
         private EntityStateMachine _stateMachine;
@@ -57,6 +66,7 @@ namespace Code.Players
 
         private void Update()
         {
+            healthBar.SetHealth(entityHealth.CurrentHealth, 100);
             _stateMachine.UpdateStateMachine();
         }
 
@@ -66,11 +76,26 @@ namespace Code.Players
 
         public void ApplyDamage(DamageData damageData, Vector3 hitPoint, Vector3 hitNormal, AttackDataSO attackData, Entity dealer)
         {
-            if(IsHit)
+            if (IsHit || IsDie)
                 return;
-            _stateMachine.ChangeState("HIT");
+
             entityHealth.ApplyDamage(damageData, hitPoint, hitNormal, attackData, dealer);
+            
+            healthBar.SetHealth(entityHealth.CurrentHealth, 100); // 여기서 호출
+
+            if (entityHealth.CurrentHealth <= 0)
+            {
+                IsDie = true;
+                characterController.center += Vector3.up * 0.5f;
+                _stateMachine.ChangeState("DIE");
+                CameraRotation.IsUI = true;
+            }
+            else
+            {
+                _stateMachine.ChangeState("HIT");
+            }
         }
+
 
         public void KnockBack(Vector3 force, float duration)
         {

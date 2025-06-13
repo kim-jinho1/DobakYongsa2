@@ -5,7 +5,7 @@ namespace Code.Players.Components
 {
     public class RootMotionCompo : MonoBehaviour, IEntityComponent
     {
-        [SerializeField] private Animator animator;
+        public Animator animator;
         private Entity _entity;
         private CharacterController controller;
 

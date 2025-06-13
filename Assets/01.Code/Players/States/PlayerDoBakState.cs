@@ -26,8 +26,8 @@ namespace Code.Players.States
 
         public override void Exit()
         {
-            base.Exit();
             _movementCompo.CanManualMovement = true;
+            base.Exit();
         }
     }
 }
