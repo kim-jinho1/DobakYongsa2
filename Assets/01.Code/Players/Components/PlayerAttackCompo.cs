@@ -19,6 +19,7 @@ namespace Code.Players.Components
         private EntityAnimatorTrigger _animatorTrigger;
         private EntityStatCompo _statCompo;
         private DamageCompo _damageCompo;
+        public AudioSource attack;
 
         [SerializeField] private Transform child;
         [SerializeField] private Transform parent;
@@ -86,6 +87,7 @@ namespace Code.Players.Components
             
             Vector3 position = damageCaster.transform.position;
             damageCaster.CastDamage(damageData, position, _entity.transform.forward, attackData);
+            attack.Play();
         }
 
         private void HandleAttackVFXTrigger() 

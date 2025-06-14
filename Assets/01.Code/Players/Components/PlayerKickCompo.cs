@@ -12,6 +12,7 @@ namespace Code.Players.Components
         [SerializeField] private StatSO physicalDamageStat;
         [SerializeField] private DamageCaster damageCaster;
         private Entity _entity;
+        public AudioSource kickSoundID;
         private EntityAnimatorTrigger _animatorTrigger;
         private EntityStatCompo _statCompo;
         private DamageCompo _damageCompo;
@@ -41,6 +42,7 @@ namespace Code.Players.Components
             
             Vector3 position = damageCaster.transform.position;
             damageCaster.CastDamage(damageData, position, _entity.transform.forward, attackData);
+            kickSoundID.Play();
         }
 
         private AttackDataSO GetCurrentAttackData()

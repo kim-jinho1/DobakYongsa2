@@ -1,4 +1,3 @@
-using System.Collections;
 using Code.CameraSetting;
 using Code.Combat;
 using Code.Entities;
@@ -25,6 +24,9 @@ namespace Code.Players
         [SerializeField] private CharacterController characterController;
         
         public GameObject playerCamera;
+
+        public AudioSource dieSoundID;
+        public AudioSource hitSoundID;
 
         public GameObject button;
         public GameObject button1;
@@ -75,7 +77,9 @@ namespace Code.Players
         private void HandleRollingPressed()
         {
             if (OnBattle)
+            {
                 ChangeState("KICK");
+            }
         }
 
         private void Start()
@@ -102,12 +106,14 @@ namespace Code.Players
             {
                 IsDie = true;
                 characterController.center += Vector3.up * 0.5f;
+                dieSoundID.Play();
                 particleSystem.Play();
                 _stateMachine.ChangeState("DIE");
                 CameraRotation.IsUI = true;
             }
             else
             {
+                hitSoundID.Play();
                 particleSystem.Play();
                 _stateMachine.ChangeState("HIT");
             }

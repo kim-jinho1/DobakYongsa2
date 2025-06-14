@@ -24,6 +24,9 @@ namespace Code.DoBak
         [SerializeField] private GameObject button2;
         [SerializeField] private GameObject button3;
         [SerializeField] private GameObject button4;
+        
+        [SerializeField] private AudioSource audioSource1;
+        [SerializeField] private AudioSource audioSource2;
 
         public UnityEvent OnExitDoBak;
 
@@ -87,10 +90,12 @@ namespace Code.DoBak
             if (value == _randomValue)
             {
                 dataManager.Gold += betAmount * 2;
+                audioSource1.Play();
                 successEffect.Play(); // 성공 파티클
             }
             else
             {
+                audioSource2.Play();
                 dataManager.Gold -= betAmount;
                 failEffect.Play(); // 실패 파티클
             }

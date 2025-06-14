@@ -41,6 +41,10 @@ namespace Code.Players
                 Vector2 movementKey = context.ReadValue<Vector2>();
                 MovementKey = movementKey;
             }
+            else
+            {
+                MovementKey = Vector2.zero;;
+            }
         }
 
         public void OnAttack(InputAction.CallbackContext context)
