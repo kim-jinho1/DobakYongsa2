@@ -68,7 +68,8 @@ namespace Code.Players
 
         private void Update()
         {
-            healthBar.SetHealth(entityHealth.CurrentHealth, 100);
+            if (healthBar is not null)
+                healthBar.SetHealth(entityHealth.CurrentHealth, 100);
             _stateMachine.UpdateStateMachine();
         }
 
