@@ -1,4 +1,5 @@
 using System;
+using Code.CameraSetting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -35,8 +36,11 @@ namespace Code.Players
 
         public void OnMove(InputAction.CallbackContext context)
         {
-            Vector2 movementKey = context.ReadValue<Vector2>();
-            MovementKey = movementKey;
+            if (CameraRotation.IsUI == false)
+            {
+                Vector2 movementKey = context.ReadValue<Vector2>();
+                MovementKey = movementKey;
+            }
         }
 
         public void OnAttack(InputAction.CallbackContext context)

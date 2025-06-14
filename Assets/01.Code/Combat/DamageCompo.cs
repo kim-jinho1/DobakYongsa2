@@ -62,8 +62,16 @@ namespace Code.Combat
         {
             DamageData data = new DamageData();
 
-            data.damage = _statCompo.GetStat(majorStat).Value * attackData.damageMultiplier 
-                          + attackData.damageIncrease * multiplier;
+            var stat = _statCompo.GetStat(majorStat);
+            if (stat == null)
+            {
+                data.damage = 0;
+                data.isCritical = false;
+                return data;
+            }
+
+            data.damage = stat.Value * attackData.damageMultiplier + attackData.damageIncrease * multiplier;
+
             if (Random.value < _critical)
             {
                 data.damage *= _criticalDamage;
@@ -73,8 +81,9 @@ namespace Code.Combat
             {
                 data.isCritical = false;
             }
-            
+
             return data;
         }
+
     }
 }

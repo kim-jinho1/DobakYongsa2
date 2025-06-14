@@ -48,7 +48,17 @@ namespace Code.CameraSetting
         private void Update()
         {
             if (IsUI)
+            {
+                Cursor.visible = true;
+                Cursor.lockState = CursorLockMode.None;
                 return;
+            }
+            else
+            {
+                Cursor.visible = false;
+                Cursor.lockState = CursorLockMode.Locked;
+            }
+
             _yaw += Input.GetAxis("Mouse X") * sensitivity * Time.deltaTime;
             _pitch += -Input.GetAxis("Mouse Y") * sensitivity * Time.deltaTime;
             _pitch = Mathf.Clamp(_pitch, bottomClamp, topClamp);
@@ -56,6 +66,7 @@ namespace Code.CameraSetting
             Quaternion targetRotation = Quaternion.Euler(_pitch, _yaw, 0);
             transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, Time.deltaTime * rotationLerpSpeed);
         }
+
 
         private void LateUpdate()
         {
