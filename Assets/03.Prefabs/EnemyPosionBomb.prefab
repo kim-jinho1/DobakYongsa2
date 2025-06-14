@@ -314,7 +314,7 @@ MonoBehaviour:
     overrideBaseValue: 40
   - stat: {fileID: 11400000, guid: 6b7e93e7a2470b840b310894b360d36c, type: 2}
     isUseOverride: 1
-    overrideBaseValue: 4
+    overrideBaseValue: 5
   - stat: {fileID: 11400000, guid: f6fd4eda01f81e04a9a6dbc5f2d715cb, type: 2}
     isUseOverride: 1
     overrideBaseValue: 4
@@ -480,8 +480,8 @@ MonoBehaviour:
   particleSystem: {fileID: 7964087822011399654}
   respawnParticles: {fileID: 2389912629309122425}
   entityAnimatorTrigger: {fileID: 7704404420622366989}
-  enemyAttackRange: -1
-  attackRadius: 1.5
+  enemyAttackRange: 1
+  attackRadius: 1.2
   whatIsPlayer:
     serializedVersion: 2
     m_Bits: 64
@@ -550,7 +550,7 @@ MonoBehaviour:
           m_Value0: 1201899978119515107
           m_Value1: 9695747966589151819
         Name: Gold
-        m_Value: 3
+        m_Value: 10
     - rid: 8217392677542429084
       type: {class: 'BlackboardVariable`1[[Code.Managers.DataManager, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
