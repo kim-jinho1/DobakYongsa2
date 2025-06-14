@@ -6,6 +6,8 @@ namespace Code.Players.Components
     public class DoBakCompo : MonoBehaviour,IEntityComponent
     {
         [SerializeField] private GameObject doBakUI;
+        public Transform CameraTarget;
+
         
         public Transform Position;
         

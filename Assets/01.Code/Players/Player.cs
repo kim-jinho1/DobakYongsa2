@@ -23,8 +23,11 @@ namespace Code.Players
         [SerializeField] private StateDataSO[] stateDataList;
         
         [SerializeField] private CharacterController characterController;
+        
+        public GameObject playerCamera;
 
         public GameObject button;
+        public GameObject button1;
         
         public Animator animator;
         
@@ -54,6 +57,20 @@ namespace Code.Players
         {
             PlayerInput.OnRollingPressed -= HandleRollingPressed;
         }
+        private void Update()
+        {
+            if (healthBar is not null)
+                healthBar.SetHealth(entityHealth.CurrentHealth, 100);
+
+            _stateMachine.UpdateStateMachine();
+
+            // 도박 상태가 아니고 IsDoingDoBak이 true면 IDLE로 전환
+            if (!CameraRotation.IsUI && IsDoingDoBak)
+            {
+                IsDoingDoBak = false;
+                ChangeState("IDLE");
+            }
+        }
 
         private void HandleRollingPressed()
         {
@@ -66,12 +83,7 @@ namespace Code.Players
             _stateMachine.ChangeState("IDLE");
         }
 
-        private void Update()
-        {
-            if (healthBar is not null)
-                healthBar.SetHealth(entityHealth.CurrentHealth, 100);
-            _stateMachine.UpdateStateMachine();
-        }
+        public bool IsDoingDoBak { get; set; } = false;
 
         public void ChangeState(string newStateName) 
             => _stateMachine.ChangeState(newStateName);
@@ -101,6 +113,25 @@ namespace Code.Players
             }
         }
 
+        public void HandleDoBakChange()
+        {
+            if (CameraRotation.IsUI != true)
+            {
+                button.SetActive(true);
+                button1.SetActive(true);
+                CameraRotation.IsUI = true;
+            }
+        }
+        
+        public void DoBakChange()
+        {
+            _stateMachine.ChangeState("DOBAK");
+        }
+
+        public void NotDoBakChange()
+        {
+            _stateMachine.ChangeState("IDLE");
+        }
 
         public void KnockBack(Vector3 force, float duration)
         {

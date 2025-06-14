@@ -29,6 +29,11 @@ namespace Code.CameraSetting
         private float _pitch;
         private Vector3 _defaultCameraDirection;
 
+        public void SetFollowTarget(Transform target)
+        {
+            objectToFollow = target;
+        }
+
         private void OnEnable()
         {
             IsUI = false;

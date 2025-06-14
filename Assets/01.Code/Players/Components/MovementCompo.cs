@@ -75,7 +75,7 @@ namespace Code.Players.Components
         private void FixedUpdate()
         {
             CalculateMovement();
-            ApplyGravity(); ;
+            ApplyGravity();
         }
 
         private void CalculateMovement()
