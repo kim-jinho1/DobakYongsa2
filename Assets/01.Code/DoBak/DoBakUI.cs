@@ -16,7 +16,6 @@ namespace Code.DoBak
         
         [SerializeField] private DataManager dataManager;
         [SerializeField] private TMP_InputField goldBetting;
-        [SerializeField] private GameObject warringPanel;
         [SerializeField] private GameObject bettingPanel;
         [SerializeField] private GameObject button;
         [SerializeField] private GameObject button1;
@@ -34,18 +33,8 @@ namespace Code.DoBak
         {
             if (int.Parse(goldBetting.text) <= dataManager.Gold)
             {
-                var player = FindObjectOfType<Code.Players.Player>();
-                if (player != null)
-                {
-                    player.DoBakChange();
-                }
-
                 StartCoroutine(DoBak());
                 bettingPanel.SetActive(false);
-            }
-            else
-            {
-                warringPanel.SetActive(true);
             }
         }
 
@@ -71,6 +60,11 @@ namespace Code.DoBak
             bettingPanel.SetActive(true);
             button.SetActive(false);
             button1.SetActive(false);
+            var player = FindObjectOfType<Code.Players.Player>();
+            if (player != null)
+            {
+                player.DoBakChange();
+            }
         }
 
         private IEnumerator DoBak()

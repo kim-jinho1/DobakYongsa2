@@ -114,7 +114,12 @@ namespace Code.Players.Components
         
         public AttackDataSO GetCurrentAttackData()
         {
-            Debug.Assert(attackDataList.Length > ComboCounter, "Combo counter is out of range");
+            if (ComboCounter < 0 || ComboCounter >= attackDataList.Length)
+            {
+                Debug.LogWarning($"Invalid ComboCounter: {ComboCounter}, attackDataList Length: {attackDataList.Length}");
+                return null;
+            }
+
             return attackDataList[ComboCounter];
         }
     }
