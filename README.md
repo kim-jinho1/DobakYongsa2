@@ -16,7 +16,7 @@
   - `Players/Components/PlayerAttackCompo.cs` · `Players/States/PlayerAttackState.cs`
 - **타격감** — 피격 피드백(히트 이펙트는 풀에서 꺼내 씀)과 카메라 셰이크. 히트스톱 · 슬로모션 조합은 포트폴리오에 정리했습니다
   - `Feedbacks/` · `CameraSetting/CameraShake.cs`
-- **적 AI** — Behavior Tree 커스텀 노드 (순찰 → 추적 → 공격), 시야 · 공격 범위 판정은 Condition 노드
+- **적 AI** — 수업에서 배운 Behavior Tree 구조 위에 노드를 구성했습니다 (순찰 → 추적 → 공격, 시야 · 공격 범위 판정은 Condition 노드)
   - `BT/`
 - **야바위** — 컵 세 개 중 하나를 고르는 미니게임
   - `DoBak/` · `Players/Components/DoBakCompo.cs`
@@ -27,7 +27,7 @@
 
 | 부분 | 출처 |
 |---|---|
-| FSM · 엔티티 · 스탯 · 전투 기본 구조 (`FSM/` · `Entities/` · `Core/StatSystem/` · `Combat/`) | 수업 코드를 기반으로 사용 |
+| FSM · 엔티티 · 스탯 · 전투 기본 구조 · BT 노드 틀 (`FSM/` · `Entities/` · `Core/StatSystem/` · `Combat/` · `BT/`) | 수업 코드를 기반으로 사용 |
 | `Assets/GondrLib` (오브젝트 풀 · 의존성 주입) | 수업 라이브러리 |
 
 ## 의존성
