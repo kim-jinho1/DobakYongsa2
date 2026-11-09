@@ -27,7 +27,7 @@
 
 | 부분 | 출처 |
 |---|---|
-| FSM (`FSM/`) | 수업 코드 |
+| FSM · 엔티티 · 스탯 · 전투 기본 구조 (`FSM/` · `Entities/` · `Core/StatSystem/` · `Combat/`) | 수업 코드를 기반으로 사용 |
 | `Assets/GondrLib` (오브젝트 풀 · 의존성 주입) | 수업 라이브러리 |
 
 ## 의존성
